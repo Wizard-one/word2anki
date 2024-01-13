@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "word2anki"
+version="0.1.0"
+description = ""
+readme= "README.md"
+requires-python =">=3.8"
+keywords=[]
+dependencies =[
+    "genanki",
+    "requests"
+]
+[tool.setuptools.packages.find]
+include = ["word2anki"]  # ["*"] by default
+
+
+[tool.pytest.ini_options]
+addopts = "-v -s"
+testpaths=[
+    "Test",
+]
+python_functions = ["test_*"] # 只运行名为test_*的测试函数
+python_classes=["test_*"]
+python_files = ["test_*.py"] # 只运行名为test_*.py的测试文件
+pythonpath=["."] # 添加到 sys_path 的路径
