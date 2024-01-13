@@ -1,0 +1,58 @@
+.meaning {
+	margin: 12px 0;
+	padding: 8px;
+	list-style: none;
+	border: 1px solid #9996;
+	border-radius: 6px;
+}
+
+.partOfSpeech {
+	margin: 0;
+	font-size: 22px;
+	line-height: 24px;
+	font-weight: 600;
+	opacity: 0.6;
+}
+
+.definition {
+	margin: 0;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 600;
+	opacity: 0.3;
+}
+.example {
+	margin: 8px 0;
+	padding-left: 8px;
+	border-left: 4px solid #999;
+	background: #ccc3;
+}
+
+.synonyms,
+.antonyms {
+	display: flex;
+	margin-bottom: 8px;
+}
+
+.synonyms ul,
+.antonyms ul {
+	display: flex;
+	padding: 0 8px;
+	margin-left: -4px;
+}
+
+.synonyms li,
+.antonyms li {
+	list-style: none;
+	margin: 0 4px;
+	padding: 0 12px;
+	border-radius: 4px
+}
+
+.synonyms li {
+	background: #cdd;
+}
+
+.antonyms li {
+	background: #dcc;
+}

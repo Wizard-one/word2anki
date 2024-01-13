@@ -1,0 +1,6 @@
+monopoly
+lime
+thick
+branch
+foliage
+tough

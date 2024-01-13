@@ -5,13 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "word2anki"
 version="0.1.0"
-description = ""
+authors = [{name="Wizard-one"}]
+description = "word transform to anki card"
 readme= "README.md"
-requires-python =">=3.8"
-keywords=[]
+requires-python =">=3.9"
+keywords=["anki","English"]
 dependencies =[
     "genanki",
-    "requests"
+    "requests",
+    "tqdm",
+    "loguru",
+    "jinja2"
 ]
 [tool.setuptools.packages.find]
 include = ["word2anki"]  # ["*"] by default

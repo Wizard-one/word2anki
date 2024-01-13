@@ -1,0 +1,37 @@
+<ul class="meanings">
+	{%for meaning in meanings%}
+	<li class="meaning">
+		<p class="partOfSpeech">{{meaning.partOfSpeech}}</p>
+		<ul class="definitions">
+			{%for definition in meaning.definitions %}
+			<li>
+				<p class="definition">{{definition.definition}}</p>
+				{% if definition.example %}
+				<p class="example">{{definition.example}}</p>
+				{% endif %}
+				{%if definition.synonyms%}
+				<div class="synonyms">
+					<span>synonyms:</span>
+					<ul>
+						{% for synonym in definition.synonyms %}
+						<li>{{synonym}}</li>
+						{% endfor %}
+					</ul>
+				</div>
+				{%endif%}
+				{% if definition.antonyms %}				
+				<div class="antonyms">
+					<span>antonyms:</span>
+					<ul>
+						{% for antonym in definition.antonyms %}
+						<li>{{antonym}}</li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% endif %}
+			</li>
+			{%endfor%}
+		</ul>
+	</li>
+	{%endfor%}
+</ul>
