@@ -5,13 +5,14 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
+import word2anki
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'word2anki'
 copyright = '2024, Wizard-one'
 author = 'Wizard-one'
-release = '0.1.0'
+release = word2anki.__version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
