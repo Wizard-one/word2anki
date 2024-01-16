@@ -1,0 +1,5 @@
+genanki
+requests
+tqdm
+loguru
+jinja2
