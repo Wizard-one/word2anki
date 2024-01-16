@@ -33,3 +33,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
+# html_theme_options = {}
+html_theme_options = {
+  # Navbar
+  "github_url": "https://github.com/Wizard-one/word2anki",
+  "navbar_end": ["navbar-icon-links"],
+  # General config
+  "collapse_navigation": True,
+}
