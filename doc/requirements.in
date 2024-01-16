@@ -1,3 +1,10 @@
+genanki
+requests
+tqdm
+loguru
+jinja2
+
+
 sphinx==7.2.6
 numpydoc==1.6.0
 myst-parser==2.0.0
