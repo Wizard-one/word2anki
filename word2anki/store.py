@@ -4,7 +4,7 @@ import genanki
 import jinja2
 from .type import word
 from tqdm import tqdm
-
+from typing import Optional
 
 def _get_model(model_id=114514,name="English")->genanki.Model:
 	"""set anki model
@@ -85,7 +85,7 @@ def _add_note(word: word, model: genanki.Model):
 	return my_note
 
 
-def make_package(words:list[word],deck:genanki.Deck,model:genanki.Model)->None:
+def make_package(words:list[word],deck:genanki.Deck,model:genanki.Model,savename:Optional[str]=None)->None:
 	"""convert word list to anki package.
 	
 	save package to `apkg`
@@ -104,6 +104,7 @@ def make_package(words:list[word],deck:genanki.Deck,model:genanki.Model)->None:
 		deck.add_note(my_note)
 	my_package = genanki.Package(deck)
 	# my_package.media_files = [ f'./myaudio/{word}.mp3' for word in dic.keys()]
-
-	today = time.strftime("%Y-%m-%d", time.localtime())
-	my_package.write_to_file(f"./{today}.apkg")
+	if savename is None:
+		savename = time.strftime("%Y-%m-%d", time.localtime())
+	my_package.write_to_file(f"./{savename}.apkg")
+	print(f"Save to {savename}.apkg")

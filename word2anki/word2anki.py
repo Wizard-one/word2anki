@@ -3,12 +3,14 @@ from .search import FreeDictAPI
 import genanki
 import time
 from tqdm import tqdm
+from typing import Optional
 
 def word2anki(file:str,
 			  model_id=114514,
 			  model_name="English",
 			  deck_id=114514,
-			  deck_name="English")->None:
+			  deck_name="English",
+			  savename:Optional[str]=None)->None:
 	"""read word list from file and convert to anki package.
 	
 	Parameters
@@ -53,4 +55,4 @@ def word2anki(file:str,
 
 	model = _get_model(model_id, model_name)
 	deck = genanki.Deck(deck_id, deck_name)
-	make_package(wordlist, deck, model)
+	make_package(wordlist, deck, model,savename)
