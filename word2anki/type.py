@@ -1,3 +1,5 @@
+"""Word type define
+"""
 from typing import TypedDict, Optional,NotRequired
 
 class definition(TypedDict):

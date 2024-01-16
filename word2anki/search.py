@@ -1,3 +1,7 @@
+"""vocabulary search module
+
+use FreeDictionaryAPI search vocabulary
+"""
 import requests
 from .type import word,meaning,definition
 from loguru import logger
@@ -41,7 +45,7 @@ def checker(search_word,res:dict)->Optional[word]:
 
 	Returns
 	-------
-		_description_
+		word dict
 	"""	
 	for k in word.__required_keys__:
 		if k not in res:
@@ -72,6 +76,10 @@ def FreeDictAPI(word:str)->Optional[word]:
 	Returns
 	-------
 		word dict
+
+	Reference
+	---------
+	[FreeDictionaryAPI](https://github.com/meetDeveloper/freeDictionaryAPI)
 	"""	
 	url=f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
 	header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}	 

@@ -1,3 +1,7 @@
+"""Anki Interface
+
+use genanki provide some interface to anki note, model, deck
+"""
 import genanki
 import time
 import genanki
