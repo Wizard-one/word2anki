@@ -1,1 +1,1 @@
-from .word2anki import word2anki
+from .anki import word2anki
