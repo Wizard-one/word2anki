@@ -8,7 +8,38 @@ def word2anki(file:str,
 			  model_id=114514,
 			  model_name="English",
 			  deck_id=114514,
-			  deck_name="English"):
+			  deck_name="English")->None:
+	"""read word list from file and convert to anki package.
+	
+	Parameters
+	----------
+	file
+		word list file.
+	model_id, optional
+		model id, by default 114514
+	model_name, optional
+		model name, by default "English"
+	deck_id, optional
+		deck id, by default 114514
+	deck_name, optional
+		deck name, by default "English"
+
+	Examples
+	--------
+	>>> word2anki("wordlist.txt")
+		fetch progress: 100%|████| 40/40 [00:59<00:00,  1.49s/it]
+		Packaging progress: 100%|████| 40/40 [00:00<00:00, 409.89it/s]
+		Save to 2024-01-16.apkg
+
+	Notes
+	-----
+	- The word list file should be a text file, each line is a word.
+	- The word list file should be UTF-8 encoded.
+	- The word list file should not contain any blank line.
+	- The word list file should not contain any special characters.
+	- The word list file should not contain any Chinese characters.
+
+	"""	
 	
 	with open(file, "r") as f:
 		words=f.readlines()

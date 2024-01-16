@@ -6,7 +6,32 @@ from .type import word
 from tqdm import tqdm
 
 
-def _get_model(model_id=114514,name="English"):
+def _get_model(model_id=114514,name="English")->genanki.Model:
+	"""set anki model
+
+	use `./templates/front.html` as front  template
+	use `"./templates/back.css"` as back  style
+
+	Parameters
+	----------
+	model_id, optional
+		model id, by default 114514
+	name, optional
+		model name, by default "English"
+
+	Returns
+	-------
+		anki model
+	
+	Notes
+	-----
+	Because Anki's templates do not support mutilevel field and list. In back, We use HTML with Jinja template instead.
+
+	Reference
+	---------
+
+	[Anki document](https://docs.ankiweb.net/templates/fields.html)
+	"""	
 	back_style="""{{FrontSide}}\n{{meanings}}"""
 	with open("./templates/front.html", "r") as f:
 		front_style = f.read()
@@ -30,6 +55,21 @@ def _get_model(model_id=114514,name="English"):
 	return model
 
 def _add_note(word: word, model: genanki.Model):
+	"""transform word to anki note
+
+	use `"./templates/back.html.jinja"` as back card template
+
+	Parameters
+	----------
+	word
+		word dict
+	model
+		anki model
+
+	Returns
+	-------
+		a single anki note
+	"""	
 	env = jinja2.Environment(
 		loader=jinja2.FileSystemLoader('./templates'),
 		autoescape=jinja2.select_autoescape()
@@ -46,6 +86,19 @@ def _add_note(word: word, model: genanki.Model):
 
 
 def make_package(words:list[word],deck:genanki.Deck,model:genanki.Model)->None:
+	"""convert word list to anki package.
+	
+	save package to `apkg`
+
+	Parameters
+	----------
+	words
+		word list
+	deck
+		card deck
+	model
+		card model
+	"""	
 	for w in tqdm(words,desc="Packaging progress"):
 		my_note = _add_note(w, model)
 		deck.add_note(my_note)

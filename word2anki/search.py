@@ -1,8 +1,23 @@
 import requests
 from .type import word,meaning,definition
 from loguru import logger
+from typing import Optional
 
-def _get_phonetic(word: word):
+def _get_phonetic(word: word)->str:
+	"""Get phonetic from word.
+
+	FreeDictAPI some word lack phonetic, so we need to get it from phonetics.	
+
+	Parameters
+	----------
+	word
+		single word
+
+	Returns
+	-------
+	phonetic
+		phonetic of word
+	"""	
 	phonetic = word.get('phonetic', None)
 	if phonetic is not None:
 		return phonetic
@@ -12,7 +27,22 @@ def _get_phonetic(word: word):
 
 	return " "
 
-def checker(search_word,res:dict)->word:
+def checker(search_word,res:dict)->Optional[word]:
+	"""check FreeDictAPI respons
+
+	lack field word will log and return None.
+	
+	Parameters
+	----------
+	search_word
+		search word
+	res
+		respons
+
+	Returns
+	-------
+		_description_
+	"""	
 	for k in word.__required_keys__:
 		if k not in res:
 			logger.info(f"{search_word} lack {k}")
@@ -29,7 +59,20 @@ def checker(search_word,res:dict)->word:
 
 
 
-def FreeDictAPI(word:str)->word:
+def FreeDictAPI(word:str)->Optional[word]:
+	"""fetch word from FreeDictAPI.
+	
+	lack field word will log and return None.
+	
+	Parameters
+	----------
+	word
+		single word
+
+	Returns
+	-------
+		word dict
+	"""	
 	url=f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
 	header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}	 
 	res=requests.get(url,headers=header,timeout=10)
