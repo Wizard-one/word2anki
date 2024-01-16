@@ -5,11 +5,11 @@ Inspire by [Make_Anki_Package](https://github.com/tongfeima/Make_Anki_Package), 
 
 Front:
 
-![Front](doc/img/front.png)
+![Front](https://github.com/Wizard-one/word2anki/blob/main/doc/img/front.png)
 
 Back:
 
-![Back](doc/img/back.png)
+![Back](https://github.com/Wizard-one/word2anki/blob/main/doc/img/back.png)
 
 
 
