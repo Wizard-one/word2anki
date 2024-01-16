@@ -31,7 +31,7 @@ def _get_phonetic(word: word)->str:
 
 	return " "
 
-def checker(search_word,res:dict)->Optional[word]:
+def _checker(search_word,res:dict)->Optional[word]:
 	"""check FreeDictAPI respons
 
 	lack field word will log and return None.
@@ -84,7 +84,7 @@ def FreeDictAPI(word:str)->Optional[word]:
 	url=f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
 	header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}	 
 	res=requests.get(url,headers=header,timeout=10)
-	return checker(word,res.json()[0])
+	return _checker(word,res.json()[0])
 
 def _get_mp3(word):
 	api = f'http://dict.youdao.com/dictvoice?audio={word}'
