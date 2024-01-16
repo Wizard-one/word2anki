@@ -1,3 +1,6 @@
+[![Documentation Status](https://readthedocs.org/projects/word2anki/badge/?version=latest)](https://word2anki.readthedocs.io/en/latest/?badge=latest)
+
+
 Inspire by [Make_Anki_Package](https://github.com/tongfeima/Make_Anki_Package), develop a small tool make batch of Anki card. 
 
 
@@ -5,11 +8,11 @@ Inspire by [Make_Anki_Package](https://github.com/tongfeima/Make_Anki_Package), 
 
 Front:
 
-![Front](https://github.com/Wizard-one/word2anki/blob/main/doc/img/front.png)
+![Front](https://github.com/Wizard-one/word2anki/raw/main/doc/img/front.png)
 
 Back:
 
-![Back](https://github.com/Wizard-one/word2anki/blob/main/doc/img/back.png)
+![Back](https://github.com/Wizard-one/word2anki/raw/main/doc/img/back.png)
 
 
 
@@ -42,6 +45,3 @@ The default card group name is English
 - [baicizhan API](https://github.com/lyc8503/baicizhan-word-meaning-API)
 - [GenAnki](https://github.com/kerrickstaley/genanki)
 - [FreeDictionaryAPI](https://github.com/meetDeveloper/freeDictionaryAPI)
-
-# Copyright & license
-
