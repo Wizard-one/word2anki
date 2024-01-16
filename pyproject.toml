@@ -17,6 +17,20 @@ dependencies =[
     "loguru",
     "jinja2"
 ]
+
+[project.optional-dependencies]
+dev = [
+	#doc about
+	"sphinx",
+	"numpydoc",
+	"pydata-sphinx-theme",
+	"myst-parser",
+	#build about
+	"setuptools",
+	"build",
+	]
+
+
 [tool.setuptools.packages.find]
 include = ["word2anki"]  # ["*"] by default
 
