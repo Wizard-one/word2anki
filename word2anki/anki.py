@@ -154,6 +154,7 @@ def word2anki(file:str,
 	
 	with open(file, "r") as f:
 		words=f.readlines()
+	words=set(words)
 	wordlist=[]
 	for i,w in enumerate(tqdm(words,desc=f"fetch progress")):
 		word=FreeDictAPI(w.strip())
