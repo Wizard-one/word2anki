@@ -84,6 +84,9 @@ def FreeDictAPI(word:str)->Optional[word]:
 	url=f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
 	header = {'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}	 
 	res=requests.get(url,headers=header,timeout=10)
+	if res.status_code != 200:
+		logger.info(f"{word} {res.status_code}")
+		return None
 	return _checker(word,res.json()[0])
 
 def _get_mp3(word):
