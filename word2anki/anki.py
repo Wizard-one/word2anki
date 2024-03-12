@@ -42,7 +42,7 @@ def _get_model(model_id=114514,name="English")->genanki.Model:
 		front_style = f.read()
 	with open("./templates/back.css", "r") as f:
 		css = f.read()
-	model = genanki.Model(
+	return genanki.Model(
 		model_id=model_id, name=name,
 		fields=[
 			{'name': 'word'},
@@ -57,7 +57,6 @@ def _get_model(model_id=114514,name="English")->genanki.Model:
 			},
 		],
 		css=css)
-	return model
 
 def _add_note(word: word, model: genanki.Model):
 	"""transform word to anki note
@@ -82,12 +81,11 @@ def _add_note(word: word, model: genanki.Model):
 	template = env.get_template("back.html.jinja")
 	meanings = template.render(meanings=word['meanings'])
 
-	my_note = genanki.Note(
+	return genanki.Note(
 		model=model,
 		fields=[word['word'], word['phonetic'],meanings],
 		sort_field="word"
 	)
-	return my_note
 
 
 def make_package(words:list[word],deck:genanki.Deck,model:genanki.Model,savename:Optional[str]=None)->None:
