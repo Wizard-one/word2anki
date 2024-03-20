@@ -11,7 +11,7 @@ from .search import FreeDictAPI
 from tqdm import tqdm
 from typing import Optional
 
-def _get_model(model_id=114514,name="English")->genanki.Model:
+def _get_model(model_id=114514,name="English",is_dictation=False)->genanki.Model:
 	"""set anki model
 
 	use `./templates/front.html` as front  template
@@ -38,8 +38,13 @@ def _get_model(model_id=114514,name="English")->genanki.Model:
 	[Anki document](https://docs.ankiweb.net/templates/fields.html)
 	"""	
 	back_style="""{{FrontSide}}\n{{meanings}}"""
-	with open("./templates/front.html", "r") as f:
-		front_style = f.read()
+	if is_dictation:
+		with open("./templates/dictation_f.html", "r") as f:
+			front_style = f.read()
+	else:
+		with open("./templates/front.html", "r") as f:
+			front_style = f.read()
+
 	with open("./templates/back.css", "r") as f:
 		css = f.read()
 	return genanki.Model(
@@ -117,6 +122,7 @@ def word2anki(file:str,
 			  model_name="English",
 			  deck_id=114514,
 			  deck_name="English",
+			  is_dictation=False,
 			  savename:Optional[str]=None)->None:
 	"""read word list from file and convert to anki package.
 	
@@ -161,6 +167,6 @@ def word2anki(file:str,
 		if i//10==0:
 			time.sleep(1)
 
-	model = _get_model(model_id, model_name)
+	model = _get_model(model_id, model_name,is_dictation=is_dictation)
 	deck = genanki.Deck(deck_id, deck_name)
 	make_package(wordlist, deck, model,savename)
