@@ -4,21 +4,14 @@
 #
 #    pip-compile
 #
---index-url https://mirrors.aliyun.com/pypi/simple/
---trusted-host mirrors.aliyun.com
-
 cached-property==1.5.2
     # via genanki
-certifi==2023.11.17
+certifi==2024.7.4
     # via requests
 charset-normalizer==3.3.2
     # via requests
 chevron==0.14.0
     # via genanki
-colorama==0.4.6
-    # via
-    #   loguru
-    #   tqdm
 frozendict==2.4.0
     # via genanki
 genanki==0.13.1
@@ -39,5 +32,3 @@ tqdm==4.66.1
     # via -r requirements.in
 urllib3==2.1.0
     # via requests
-win32-setctime==1.1.0
-    # via loguru

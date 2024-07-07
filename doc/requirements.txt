@@ -4,9 +4,6 @@
 #
 #    pip-compile doc/requirements.in
 #
---index-url https://mirrors.aliyun.com/pypi/simple/
---trusted-host mirrors.aliyun.com
-
 accessible-pygments==0.0.4
     # via pydata-sphinx-theme
 alabaster==0.7.16
@@ -19,17 +16,12 @@ beautifulsoup4==4.12.2
     # via pydata-sphinx-theme
 cached-property==1.5.2
     # via genanki
-certifi==2023.11.17
+certifi==2024.7.4
     # via requests
 charset-normalizer==3.3.2
     # via requests
 chevron==0.14.0
     # via genanki
-colorama==0.4.6
-    # via
-    #   loguru
-    #   sphinx
-    #   tqdm
 docutils==0.20.1
     # via
     #   myst-parser
@@ -114,5 +106,3 @@ typing-extensions==4.9.0
     # via pydata-sphinx-theme
 urllib3==2.1.0
     # via requests
-win32-setctime==1.1.0
-    # via loguru
